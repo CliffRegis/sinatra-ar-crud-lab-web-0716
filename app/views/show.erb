@@ -1,0 +1,30 @@
+<h1>Listing the Post</h1>
+
+<table>
+  
+
+  <tbody>
+   
+      <tr>
+        <td><%= @post.name %></td>
+      </tr>
+      <tr>
+        <td><%= @post.content %></td>
+      </tr>
+      <tr>
+        <td><%= @post.id %></td>
+      </tr>
+      <tr>
+        <form method= "POST" action= "/posts/<%=@post.id%>/delete" >
+          <input id="hidden" type="hidden" name="_method" value="delete">
+	      <input type="submit" value="delete" >
+        </form> 
+      </tr>
+   </tbody>
+</table>
+
+<br>
+ 
+
+<a href="/posts">
+Click Here To See all the posts</a>

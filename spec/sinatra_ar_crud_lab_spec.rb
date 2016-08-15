@@ -14,8 +14,8 @@ describe "Blog Post App" do
     it "creates a new blog post" do
       visit '/posts/new'
 
-      fill_in :name, :with => "my favorite blog post"
-      fill_in :content, :with => "blogging!!!!"
+      fill_in "post[name]", :with => "my favorite blog post"
+      fill_in "post[content]", :with => "blogging!!!!"
 
       click_button 'submit'
 
@@ -26,8 +26,8 @@ describe "Blog Post App" do
     it "redirects to '/posts'" do
       visit '/posts/new'
 
-      fill_in :name, :with => "a post"
-      fill_in :content, :with => "blog blog blog blog blog"
+      fill_in "post[name]", :with => "a post"
+      fill_in "post[content]", :with => "blog blog blog blog blog"
 
       click_button 'submit'
 
@@ -89,8 +89,8 @@ describe "Blog Post App" do
 
     it "saves edits to a blog post" do
       visit "/posts/#{@post2.id}/edit"
-      fill_in :name, :with => "Second Post!!"
-      fill_in :content, :with => "this is the best blog post ever written"
+      fill_in "post[name]", :with => "Second Post!!"
+      fill_in "post[content]", :with => "this is the best blog post ever written"
 
       click_button 'submit'
       expect(Post.all.count).to eq(2)
@@ -99,7 +99,7 @@ describe "Blog Post App" do
 
     it "redirects to '/posts/:id'" do
       visit "/posts/#{@post2.id}/edit"
-      fill_in :content, :with => "this is even better than the last"
+      fill_in "post[content]", :with => "this is even better than the last"
 
       click_button 'submit'
       expect(page.current_path).to eq("/posts/#{@post2.id}")

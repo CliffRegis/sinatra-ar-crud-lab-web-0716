@@ -13,7 +13,7 @@ gem 'rspec'
 gem 'rack-test'
 gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 gem 'require_all'
-
+gem 'sinatra-flash', '~> 0.3.0'
 
 group :development do
   gem "sqlite3"
